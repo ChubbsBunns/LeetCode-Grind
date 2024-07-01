@@ -1,0 +1,56 @@
+Given a string s, return the longest 
+palindromic substring
+ in s.
+
+Example 1:
+
+Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+Example 2:
+
+Input: s = "cbbd"
+Output: "bb"
+
+//Explanation (Dynamic Programming)
+We need to update a 2D Array that holds a table of each character against each other.
+To do this, create a 2D Square Table that holds the start and end indices of all palindromes for each starting character.
+
+To do this we need to start with 2 base cases:
+1) All single characters are palindromes since they start and end with the same character
+2) Find all characters that are the same and are side by side, these are palindromes too.
+
+To do this just iterate through the list and make every table[i][i] true.
+Then iterate through the list again but minus the max index by one,
+and make table[i][i+1] true if the values are the same.
+Update maxLength accordingly and the start index accordingly
+
+Then, we shall check for palindromes of length 3<= k <= N where N is the total length of the palindrome.
+Increment k starting from 3.
+For each length of k, and for each starting character (i in this case), check for whether the corresponding character is the same character 
+(For example for the word "adra", for k=4 and i = 0, check if the character a at index= 0  is the same as the character as a, the character at index = 4-1)
+. 
+Also check if the characters within these 2 letters are palindromes.
+This can also be done by checking if table[i + 1][j - 1] is true.
+This is because if table[i + 1][j - 1] is true, that means the characters within the 2 current incices is a palindrome.
+Hence ALL the letters, including the two new ones are palindromes too.
+Log the current leengthand starting index if this is the new maxLength.
+
+Return the corresponding substring and youre done, or the length if thats what the question requires of you.
+
+//Explanation: Expansion from center
+Assume that each character can be the center of a palindrome.
+For each character, it can either be an odd or even palindrome.
+
+Hence for each character do two things:
+1) Assume that it is the center of an even palindrome:
+Set the left index to left = i -1 
+amd the right index to right = i 
+Then increase and decrease the index by 1 (widen the current substring by 1 index on the left and right).
+Then check if they are the same. If they are, then log maxlength and other data, and continue checking.
+2) Do the above but assume that the center is the center of an odd palindrom:
+Set the left index to left = i -1 
+amd the right index to right = i + 1
+
+done
+

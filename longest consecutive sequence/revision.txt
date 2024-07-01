@@ -1,0 +1,34 @@
+Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+
+You must write an algorithm that runs in O(n) time.
+
+Example 1:
+
+Input: nums = [100,4,200,1,3,2]
+Output: 4
+Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
+Example 2:
+
+Input: nums = [0,3,7,2,5,8,4,6,0,1]
+Output: 9
+
+//Explanation
+
+To do this, you need to iterate through the numbers once 
+and append them to a set.
+
+Then iterate through the numbers again in the set, checking first if the specific
+number before the current number (i.e. x - 1) is in the set. If there is no previous number,
+that means that the current number is the start of a sequence. Keep iterating to check if
+the sequence continues, log the longest sequence in the max variable.
+Continue on with each set.
+
+At first it seems like there is a possibility that this is O(N^2) since I am iterating 
+through numbers within a for loop.
+
+However the upper bound of the inner loop is dependant on the number of numbers there are
+since each sequence will only appear at most once.
+
+This makes the time complexity O(n + n) instead of O(N^2)
+
+ 

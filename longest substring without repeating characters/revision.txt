@@ -1,0 +1,38 @@
+Example 1:
+
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+Example 2:
+
+Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+Example 3:
+
+Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+//Explanation:
+This is a simple sliding window question.
+
+A sliding window is where you iterate through an array via the use of two pointers, and you manipulate those 2 pointers.
+First you need to create a set to keep track of how many characters are in your sliding window.
+
+Because of how I want to use a while loop to remove indices later on, I'll use a while loop for better clarity.
+
+The first pointer holds the beginning a sequence, and the second, the end of the sequence.
+You first start iterating through the sequence using the second pointer. 
+Everytime the new pointer lands on something that isnt in the set, increase current count and continue incrementing the second pointer.
+
+However the moment we encounter something that is in our set, that means that we have a duplicate
+Before this, we check if the longest length of the string is higher than the current logged maxlength, and update accordingly.
+Now we need to find the earliest duplicate of the current character.
+
+To do this we iterate through the left pointer. If the left pointer's character is not equivalent to our right pointer's character,
+we need to remove it from our set since the left pointer's character is unique.
+Once the left pointer's character is equivalent to the right pointers character, we need to just increment both pointers one more time to start the next stage of testing again.
+
+Once we reach the end of the string, we should find our answer.

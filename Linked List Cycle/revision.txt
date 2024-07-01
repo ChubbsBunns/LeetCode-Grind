@@ -1,0 +1,19 @@
+Given head, the head of a linked list, determine if the linked list has a cycle in it.
+
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+
+//Explanation:
+
+Solution is a simple rabbit and the hare algorithm.
+Have two pointers, a fast pointer and a slow pointer.
+Let them go at the linked list, one moving twice as fast as the other.
+If they ever become the same node, that means a loop has been formed.
+
+Otherwise, a loop does not exist.
+
+Some things to remind myself:
+1) Do not compare equality using values, since values can be the same.
+Compare them using the nodes themselves since the nodes have inherent id's.
+
+2) hare.next.next could be an invalid operation as hare.next 
+might be null. Check for each next null before proceeding.
