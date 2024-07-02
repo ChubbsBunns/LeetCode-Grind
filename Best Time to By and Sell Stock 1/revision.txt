@@ -1,0 +1,43 @@
+You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+ Example 1:
+
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+Example 2:
+
+Input: prices = [7,6,4,3,1]
+Output: 0
+Explanation: In this case, no transactions are done and the max profit = 0.
+
+//Explanation:
+
+1) Greedy:
+In order to maximize profit, we need to maximise profit and minimise cost.
+We keep track of 2 variables, current price (AKA lowest price), and max profit.
+We initialize max profit to 0 and current price to the first index.
+Using these variables we iterate through the list of prices starting from index 1 (the second price since we've logged the first price already).
+For each price, if the price is lower than the current price, then fix current price to this price since we have found a lower price.
+Otherwise, if the price is higher than the current price, check for the price difference (which is the profit for the current price).
+If the current profit is higher than the current highest profit, update max profit.
+
+2) DP:
+Create a 2d array which keeps track of the max "profit" at each node for 
+each buy and sell decision.
+So its kind of a [N][2] kind of array.
+Initialize the first index dp[0][0] as -prices[0] since you have to buy it.
+Dont care about dp[0][1] since you cant sell something you havent bought.
+Iterate through the prices.
+For each price, assume you "buy" it (get the minimum price between 
+the lowest price up till the previous price and the current price)
+Or sell it (get the maximum price between the maximum potential price
+up till the previous price and the current price minus the previous negative lowest price)
+
+Find the last index of both a buy and sell decision. The max value of those 2 should be your answer.
+
