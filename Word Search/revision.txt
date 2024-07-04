@@ -1,0 +1,8 @@
+Given an m x n grid of characters board and a string word, return true if word exists in the grid.
+
+The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
+ // Explanation:
+
+ Simple 2D Array traversal.
+ But one major mistake was forgetting to remove things from the table, deincrementing current index and undoing the x and y index changes if a particular path did not work out

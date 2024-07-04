@@ -1,0 +1,37 @@
+Given two integers a and b, return the sum of the two integers 
+without using the operators + and -. 
+
+Example 1:
+
+Input: a = 1, b = 2
+Output: 3
+Example 2:
+
+Input: a = 2, b = 3
+Output: 5
+
+//Explanation:
+
+This requires "many XOR bitwise operation" solution.
+The over arching solution requires you to log all
+the "carried over bits", and add them again to the next round of stuff.
+
+So while there are still carry over bits (carry variable is not 0),
+Bitshift the carry over bits to the left by one since
+they will increase that index by one.
+Then do another XOR with a and b, with a being the "current logged number without carry bits in carry"
+and b being the previous carry bits.
+Then set b to the new carry bits.
+
+The loop will only exit once all the carry bits have finished.
+This also means that a is fully updated with all the carry over bits,
+hence return a.
+
+BUTTTT remember that python does not append your extra bits in numbers.
+Hence you need to mask all these numbers with 0xffffffff, which represents the largest binary number python can handle.
+This ensures that you have the appropriate number of bits to start off with.
+
+Furthermore, you need to check if your answer a is negative.
+To check if its negative, you need to do a bit shift by 31, and check if there is a bit remaining.
+If there is, it means that the most significant bit is 1, which means that it is negative.
+If it is negative, return ~(a ^ mask).

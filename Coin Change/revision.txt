@@ -1,0 +1,33 @@
+You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
+Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+You may assume that you have an infinite number of each kind of coin.
+
+Example 1:
+
+Input: coins = [1,2,5], amount = 11
+Output: 3
+Explanation: 11 = 5 + 5 + 1
+Example 2:
+
+Input: coins = [2], amount = 3
+Output: -1
+Example 3:
+
+Input: coins = [1], amount = 0
+Output: 0
+
+// Explanation:
+
+This is the dp solution.
+First, keep a table that tracks the lowest number of coins required to reach a specific amount of money.
+Then, for the current amount, iterate through the coins and continue picking almost every single permutation of coins until
+the amount reaches 0.
+Once the amount reaches 0, return 0 for the last called function.
+This will trigger the rest of the code for previous recursive functions, where it will keep on adding the total number
+of coins to the current coin count for a specific amount.
+Update res to be the current holder of the minnimum number of coins required to reach a certain amount.
+
+However, if the amount does not reach 0 and there are no more coins available, return the system.max value to show that there are no permutations possible
+for this value.
+
+Hence using this recursive example, you will get the lowest number possible
