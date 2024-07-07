@@ -22,7 +22,7 @@ class Solution:
         return coinChangeUtil(coins, amount, minCoinTable)
 
 solution = Solution
-coins = [1,2]
+coins = [2]
 amount = 11
 ans = solution.coinChange(solution, coins, amount)
 if (ans == sys.maxsize):
