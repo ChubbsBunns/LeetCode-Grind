@@ -1,0 +1,9 @@
+Given the head of a singly linked list, reverse the list, and return the reversed list.
+
+//Explanation:
+Have 3 pointers to 3 nodes:
+prev
+curr
+next
+
+For each curr node, 

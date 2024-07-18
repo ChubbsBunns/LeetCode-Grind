@@ -1,0 +1,26 @@
+Given a string s, reverse only all the vowels in the string and return it.
+
+The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+
+ 
+
+Example 1:
+
+Input: s = "hello"
+Output: "holle"
+Example 2:
+
+Input: s = "leetcode"
+Output: "leotcede"
+
+Explanation:
+First you have to keep a list of vowels. I used a set for easy lookup
+Then create a new string variable as an array to store the original string.
+(Because Python is stupid and doesnt allow for in place string manipulation)
+
+
+Then iterate through the string and ensure that left and right indexes dont extend past each other.
+In each loop, check if I have found a vowel on the left, and then check if I have found a vowel on the right.
+If i have done this, then swap the values in the newly created string variable.
+
+Reparse the array variable back into a string, return the string.

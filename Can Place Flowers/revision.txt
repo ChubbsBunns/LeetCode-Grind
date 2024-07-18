@@ -1,0 +1,15 @@
+You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in adjacent plots.
+
+Given an integer array flowerbed containing 0's and 1's, where 0 means empty and 1 means not empty, and an integer n, return true if n new flowers can be planted in the flowerbed without violating the no-adjacent-flowers rule and false otherwise.
+
+Explanation:
+This question is edge case galore.
+
+You first need to do all your checks if the length of the flowerbed is 1.
+If it is 1, then you need to check for whether the flowerbed is already filled, or if it isnt.
+Then you need to check for the value of n
+
+Then you need to iterate through the flowerbed , splitting the checks for before and after each cell to include
+the starting cell and the ending cell as well.
+
+Thereafter check for value of n, if its 0 , answer is true, otherwise answer is false.

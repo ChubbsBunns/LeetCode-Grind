@@ -24,19 +24,15 @@ class Solution:
                         ans.append([num1, num2, lastRequiredNum])
                 freq_table[num1] += 1
                 freq_table[num2] += 1
-        
-        print(ans)
         for triplet in ans:
             triplet.sort()
         ans.sort()
-
         ansList = []
         lastIndex = None
         for triplet in ans:
             if triplet != lastIndex:
                 lastIndex = triplet
                 ansList.append(triplet)
-        
         return ansList
     
 solution = Solution

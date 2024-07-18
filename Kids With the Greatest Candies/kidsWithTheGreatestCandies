@@ -1,0 +1,16 @@
+from typing import List
+
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        highestCandyCount = 0
+        for candy in candies:
+            if (candy > highestCandyCount):
+                highestCandyCount = candy
+        ans = []
+        minimumNumberOfCandiesNeeded = highestCandyCount - extraCandies
+        for candy in candies:
+            if (candy >= minimumNumberOfCandiesNeeded):
+                ans.append(True)
+            else:
+                ans.append(False)
+        return ans

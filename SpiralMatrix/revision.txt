@@ -1,0 +1,6 @@
+Given an m x n matrix, return all elements of the matrix in spiral order.
+
+Explanation:
+Remember to index the four corners as per the 2d matrix.
+
+The base case includes iterating through the matrix using each "box"/ layer around the matrix.
